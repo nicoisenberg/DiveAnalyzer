@@ -1,11 +1,16 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import sys
 
 from src.loader import load_csv
 from src.analysis import generate_dive_report
 from src.plotting import save_plot
 
 data = load_csv("data/dive_data.csv")
+
+if data is None:
+    print("Program terminated.")
+    sys.exit(1)
 
 report = generate_dive_report(data)
 
