@@ -18,8 +18,12 @@ report = generate_dive_report(data)
 print(report)
 
 save_plot(
-    data,
-    "plots/dive_plot.png"
+    data = data,
+    x_column = "Date",
+    y_columns = ["Depth", "Temperature"],
+    output_path = "plots/dive_plot.png",
+    title = "Dive Depth and Temperature",
+    y_label = "Value"
 )
 
 save_report(

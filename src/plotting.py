@@ -1,29 +1,24 @@
 import matplotlib.pyplot as plt
 
-def save_plot(data, output_path):
+def save_plot(data, x_column, y_columns, output_path, title, y_label):
 
     plt.figure(figsize = (8, 5))
 
-    plt.plot(
-    data["Date"],
-    data["Depth"],
-    marker = "o",
-    label = "Depth"
-    )
+    for y_column in y_columns:
+        plt.plot(
+            data[x_column],
+            data[y_column],
+            marker = "o",
+            label = y_column
+        )
 
-    plt.plot(
-    data["Date"],
-    data["Temperature"],
-    marker = "o",
-    label = "Temperature"
-    )
-
-    plt.title("Dive Depth and Temperature")
-    plt.ylabel("Value")
-    plt.xlabel("Date")
+    plt.title(title)
+    plt.ylabel(y_label)
+    plt.xlabel(x_column)
 
     plt.legend()
     plt.grid()
+    plt.tight_layout()
 
     plt.savefig(output_path)
 
