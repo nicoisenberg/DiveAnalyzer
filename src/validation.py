@@ -6,5 +6,11 @@ def validate_required_columns(data, required_columns):
             return False
         
     return True
+
+def validate_not_empty(data):
+    if data.empty:
+        print(f"The dataset is empty.")
+        return False
     
+    return True
 
