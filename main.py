@@ -1,16 +1,24 @@
-import pandas as pd
-import matplotlib.pyplot as plt
 import sys
 
 from src.loader import load_csv
 from src.analysis import generate_dive_report
 from src.plotting import save_plot
 from src.report import save_report
+from src.validation import validate_required_columns
 
 data = load_csv("data/dive_data.csv")
 
 if data is None:
     print("Program terminated.")
+    sys.exit(1)
+
+required_columns = [
+    "Date",
+    "Depth",
+    "Temperature"
+]
+
+if not validate_required_columns(data, required_columns):
     sys.exit(1)
 
 report = generate_dive_report(data)
