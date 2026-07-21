@@ -4,3 +4,4 @@ __pycache__/
 .vscode/
 reports/*.txt
 plots/*.png
+!plots/dive_plot.png
